@@ -18,10 +18,29 @@ public class DragonCave {
                 "and will share his treasure with you. The other dragon\n" +
                 "is greedy and hungry and will eat you on sight.");
         System.out.println("Which cave will you go into? (1 or 2)");
-        // get user input and store as int variable
-        //@TODO error checking needs to be done for improper input by user here
+
+        //@TODO error checking needs to be done for improper input by user
+        //@TODO Make a loop to allow the user to play multiple games.
         int answer = in.nextInt();
-        System.out.println("You picked cave "+ answer);
+        switch(answer){
+            case 1:
+                System.out.println("\n" +
+                        "You approach the first cave...\n" +
+                        "It is dark and spooky...\n" +
+                        "A large dragon jumps out in front of you! He opens his jaws and...\n" +
+                        "Gobbles you down in one bite!");
+                break;
+            case 2:
+                System.out.println("\n" +
+                        "You approach the second cave...\n" +
+                        "It is dark and spooky...\n" +
+                        "A large dragon jumps out in front of you! He opens his jaws and...\n" +
+                        "Laughs heartily as he hands you a giant margarita and funny hat");
+                break;
+            default:
+                System.out.println("You take your ball and go home");
+                break;
+        }
         //
     }
 }
