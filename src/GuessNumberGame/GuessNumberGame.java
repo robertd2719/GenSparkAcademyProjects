@@ -54,5 +54,6 @@ public class GuessNumberGame {
                 keepPlaying = false;
             }
         }
+        inString.close();
     }
 }
