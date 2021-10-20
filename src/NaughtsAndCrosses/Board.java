@@ -13,6 +13,7 @@ public class Board {
     int rowCount;
     int columnCount;
     Map<Integer, Tuple> markerTranslate;
+    Scanner scanner;
 
     //Setup the board for new game.
     public Board() {
@@ -41,9 +42,9 @@ public class Board {
     public void setPieces() {
         String temp;
         System.out.println("Please select a piece 'X' or 'O");
-        Scanner in = new Scanner(System.in);
-        temp = in.next().toLowerCase();
-        in.close();
+        scanner = new Scanner(System.in);
+        temp = scanner.nextLine().toLowerCase();
+
         this.playerPiece = (temp.equals("x")) ? Marker.X : Marker.O;
 
         System.out.println(" Your marker is: " + this.playerPiece);

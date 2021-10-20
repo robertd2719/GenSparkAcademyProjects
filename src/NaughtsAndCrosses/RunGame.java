@@ -2,26 +2,37 @@ package NaughtsAndCrosses;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class RunGame {
-
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         Board board = new Board();
-        Scanner in = new Scanner(System.in);
         System.out.println("Welcome to Tic Tac Toe!");
         board.setPieces();
 
-        board = computerMove(board, board.computerPiece);
-        board = playerMove(board, board.playerPiece,in);
-        board = computerMove(board, board.computerPiece);
 
-        System.out.println(board.isBoardFull());
-        in.close();
+        while (true){
+            if (board.isBoardFull()) { break; }
+            if (board.CheckWinConditionMet() == board.playerPiece) {
+                System.out.println("Player wins!");
+                break;
+            }
+            computerMove(board, board.computerPiece);
+            if (board.isBoardFull() ) { break; }
+            if (board.CheckWinConditionMet() == board.computerPiece){
+                System.out.println("Computer wins!");
+                break;
+            }
+            playerMove(board, board.playerPiece);
+        }
+
     }
 
-    public static Board computerMove(Board board, Marker cpuMarker) {
+    public static Board computerMove(Board board, Marker cpuMarker) throws InterruptedException {
         System.out.println("THe computer is thinking ........");
+        System.out.println();
+        TimeUnit.SECONDS.sleep(2);
         boolean isGoodSPot = false;
         int randomRoll;
         while (!isGoodSPot) {
@@ -38,13 +49,11 @@ public class RunGame {
         return board;
 
     }
-    public static Board playerMove(Board board, Marker playerMarker, Scanner scanner){
+    public static Board playerMove(Board board, Marker playerMarker){
 
         System.out.println("Player Move: Please select 1 - 9");
         int response;
-        scanner = new Scanner(System.in);
-        int randomRoll;
-
+        Scanner scanner = new Scanner(System.in);
         boolean isGoodSpot = false;
         while (!isGoodSpot){
             response = scanner.nextInt();
@@ -53,7 +62,6 @@ public class RunGame {
             if (!playerPlacedSuccess) {
                 System.out.println("That position is taken, please enter 1 - 9");
                 isGoodSpot = false;
-                continue;
             } else {
                 isGoodSpot = true;
             }
