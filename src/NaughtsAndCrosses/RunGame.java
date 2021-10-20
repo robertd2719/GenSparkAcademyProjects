@@ -6,27 +6,39 @@ import java.util.concurrent.TimeUnit;
 
 public class RunGame {
     public static void main(String[] args) throws InterruptedException {
+        boolean playAgain = true;
+        while(playAgain) {
+            Board board = new Board();
+            System.out.println("Welcome to Tic Tac Toe!");
+            board.setPieces();
 
-        Board board = new Board();
-        System.out.println("Welcome to Tic Tac Toe!");
-        board.setPieces();
 
-
-        while (true){
-            if (board.isBoardFull()) { break; }
-            if (board.CheckWinConditionMet() == board.playerPiece) {
-                System.out.println("Player wins!");
+            while (true) {
+                if (board.isBoardFull()) {
+                    break;
+                }
+                if (board.CheckWinConditionMet() == board.playerPiece) {
+                    System.out.println("Player wins!");
+                    break;
+                }
+                computerMove(board, board.computerPiece);
+                if (board.isBoardFull()) {
+                    break;
+                }
+                if (board.CheckWinConditionMet() == board.computerPiece) {
+                    System.out.println("Computer wins!");
+                    break;
+                }
+                playerMove(board, board.playerPiece);
+            }
+            System.out.println("Game Over would you like to play again 'Y' or 'N' ?...");
+            Scanner scanner = new Scanner(System.in);
+            String temp = scanner.next().toLowerCase();
+            if (temp.equals("n")){
+                playAgain = false;
                 break;
             }
-            computerMove(board, board.computerPiece);
-            if (board.isBoardFull() ) { break; }
-            if (board.CheckWinConditionMet() == board.computerPiece){
-                System.out.println("Computer wins!");
-                break;
-            }
-            playerMove(board, board.playerPiece);
         }
-
     }
 
     public static Board computerMove(Board board, Marker cpuMarker) throws InterruptedException {
