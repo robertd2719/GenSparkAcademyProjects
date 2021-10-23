@@ -3,4 +3,6 @@ __GenSpark Academy Projects__
 
 - *Guess Number Game*
 - *Dragon Cave* 
-- *Hangman*
+- *Hangman* 
+- *Naughts and Crosses*
+- 
