@@ -1,0 +1,62 @@
+package HumansAndGoblins;
+
+import java.util.Arrays;
+
+public class Human extends Asset{
+    private double health, attack,armor;
+    private boolean isAlive;
+    public Human(int [] currentLocation){
+        this.location = currentLocation;
+        this.health = 100;  // intial value for health
+        this.attack = 10;
+        this.armor = 5;
+        // Icon for Human class
+        this.icon = "H";
+        isAlive = true;
+        System.out.println("New Human created!");
+    }
+
+    public double getHealth() {
+        return health;
+    }
+
+    public void setHealth(double health) {
+        this.health = health;
+    }
+
+    public double getAttack() {
+        return attack;
+    }
+
+    public void setAttack(double attack) {
+        this.attack = attack;
+    }
+
+    public double getArmor() {
+        return armor;
+    }
+
+    public void setArmor(double armor) {
+        this.armor = armor;
+    }
+
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    public void setAlive(boolean alive) {
+        isAlive = alive;
+    }
+
+    @Override
+    public String toString() {
+        return "Human{" +
+                "location=" + Arrays.toString(location) +
+                ", icon='" + icon + '\'' +
+                ", health=" + health +
+                ", attack=" + attack +
+                ", armor=" + armor +
+                ", isAlive=" + isAlive +
+                '}';
+    }
+}
