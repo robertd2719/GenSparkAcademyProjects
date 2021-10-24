@@ -18,6 +18,10 @@ represent the object.
     4. map gen random treasure chest after each round of combat
     5. goblins pursue players
 ```java
-   int [][] array1 = new int[5][3];
+public class Test {
+   public static void main(String[] args) {
+      int[][] array1 = new int[5][3];
+   }
+}
     // will create a matrix with 5 rows and 3 columns
 ```

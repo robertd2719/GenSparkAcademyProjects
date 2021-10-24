@@ -53,6 +53,7 @@ public class GameWorld {
     }
 
     public void drawWorld(){
+        System.out.println();
         for (int i = 0; i < this.height; i++) {
             System.out.print("\t\t");
             for (int j = 0; j < this.width; j++) {
