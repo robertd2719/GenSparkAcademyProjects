@@ -2,18 +2,20 @@ package HumansAndGoblins;
 
 import java.util.Arrays;
 
-public class Human extends Asset{
-    private double health, attack,armor;
+public class Human extends Asset {
+    private double health, attack, armor;
     private boolean isAlive;
-    public Human(int [] currentLocation){
+
+    public Human(int[] currentLocation) {
+        this.kindOf = KindOf.HUMAN;
         this.location = currentLocation;
         this.health = 100;  // intial value for health
         this.attack = 10;
         this.armor = 5;
         // Icon for Human class
-        this.icon = "H";
+        this.icon = ANSI_BLUE+"H"+ANSI_RESET;
         isAlive = true;
-        System.out.println("New Human created!");
+        System.out.println(ANSI_BLUE+"\t\tNew Human created!"+ANSI_RESET);
     }
 
     public double getHealth() {

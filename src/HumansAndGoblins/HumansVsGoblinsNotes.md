@@ -16,4 +16,8 @@ represent the object.
     2. goblins have drops
     3. stats can be modified by equipment
     4. map gen random treasure chest after each round of combat
-    5. goblins persue players
+    5. goblins pursue players
+```java
+   int [][] array1 = new int[5][3];
+    // will create a matrix with 5 rows and 3 columns
+```
