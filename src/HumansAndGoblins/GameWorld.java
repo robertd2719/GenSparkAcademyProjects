@@ -75,6 +75,27 @@ public class GameWorld {
         }
     }
 
+    public int getWidth() {
+        return width;
+    }
 
+    public void setWidth(int width) {
+        this.width = width;
+    }
 
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public Asset[][] getWorldItems() {
+        return worldItems;
+    }
+
+    public void setWorldItems(Asset[][] worldItems) {
+        this.worldItems = worldItems;
+    }
 }

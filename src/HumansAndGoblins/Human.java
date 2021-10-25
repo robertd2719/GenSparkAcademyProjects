@@ -3,8 +3,9 @@ package HumansAndGoblins;
 import java.util.Arrays;
 
 public class Human extends Asset {
-    private double health, attack, armor;
+    private double health,armor;
     private boolean isAlive;
+    int attack;
 
     public Human(int[] currentLocation) {
         this.kindOf = KindOf.HUMAN;
@@ -26,11 +27,11 @@ public class Human extends Asset {
         this.health = health;
     }
 
-    public double getAttack() {
+    public int getAttack() {
         return attack;
     }
 
-    public void setAttack(double attack) {
+    public void setAttack(int attack) {
         this.attack = attack;
     }
 

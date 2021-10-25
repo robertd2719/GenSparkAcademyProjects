@@ -1,10 +1,13 @@
 package HumansAndGoblins;
 
 import java.util.Arrays;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class Goblin extends Asset {
-    private double health, attack, armor;
+    private double health, armor;
     private boolean isAlive;
+    int attack;
 
     Goblin(int[] currentLocation) {
         this.kindOf = KindOf.GOBLIN;
@@ -13,9 +16,9 @@ public class Goblin extends Asset {
         this.attack = 10;
         this.armor = 5;
         // Set icon for "G" for goblin
-        this.icon = ANSI_YELLOW+"G"+ANSI_RESET;
+        this.icon = ANSI_YELLOW + "G" + ANSI_RESET;
         this.isAlive = true;
-        System.out.println(ANSI_YELLOW+"\t\tNew Goblin created!!"+ANSI_RESET);
+        System.out.println(ANSI_YELLOW + "\t\tNew Goblin created!!" + ANSI_RESET);
     }
 
     public double getHealth() {
@@ -26,11 +29,11 @@ public class Goblin extends Asset {
         this.health = health;
     }
 
-    public double getAttack() {
+    public int getAttack() {
         return attack;
     }
 
-    public void setAttack(double attack) {
+    public void setAttack(int attack) {
         this.attack = attack;
     }
 
@@ -48,6 +51,34 @@ public class Goblin extends Asset {
 
     public void setAlive(boolean alive) {
         isAlive = alive;
+    }
+
+    public void attack(Human human) throws InterruptedException {
+        int roundCount = 0;
+        while (true) {
+            System.out.println("\tROUND: " + roundCount++);
+
+            int goblinHit = new Random().nextInt(this.getAttack() + 1);
+            TimeUnit.SECONDS.sleep(1);
+            System.out.println("Goblin attacks for: " + goblinHit);
+            human.setHealth(human.getHealth() - goblinHit);
+            System.out.println("Player Health: "+human.getHealth());
+            if (human.getHealth() <=0){
+                System.out.println("YOU DIED !!!");
+                human.setAlive(false);
+                break;
+            }
+
+            int playerHit = new Random().nextInt(human.getAttack() + 1);
+            System.out.println("Player Attacks for: " + playerHit);
+            this.setHealth(this.getHealth()-playerHit);
+            System.out.println("Goblin Health: "+this.getHealth());
+            if (this.getHealth() <= 0){
+                System.out.println("Enemy Defeated");
+                this.setAlive(false);
+                break;
+            }
+        }
     }
 
     @Override
