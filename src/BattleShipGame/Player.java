@@ -22,9 +22,9 @@ public class Player {
         this.playerNumber = playerCount;
         //@TODO offload this to a player run or setup Method
         inputPlayerName();
+        System.out.println("\n\nWelcome "+this.getName()+", please place your ships ");
         populatePlayerShipPool();
         placePlayerShips();
-        System.out.println("Welcome, "+this.getName());
 
         //Lastly, update player index to reflect new value for playerNumber.
         //@TODO make sure to reset this value to 0 before ending the game while loop
@@ -64,21 +64,22 @@ public class Player {
     }
 
     public void inputPlayerName() {
-        System.out.print("\nWelcome player: " + playerNumber + " please enter your name: ");
+        System.out.print("\n Player: " + playerNumber + " please enter your name: ");
         this.name = getInput();
     }
 
     /*
         On creation will populate each type and number of ships into the players pool
      */
+    // @TODO make sure to re-enable the rest of the ships
     public void populatePlayerShipPool() {
         this.playerShips.add(new AirCraftCarrier());
         this.playerShips.add(new BattleShip());
-        this.playerShips.add(new Cruiser());
-        this.playerShips.add(new Destroyer("Destroyer I"));
-        this.playerShips.add(new Destroyer("Destroyer II"));
+//        this.playerShips.add(new Cruiser());
+//        this.playerShips.add(new Destroyer("Destroyer I"));
+//        this.playerShips.add(new Destroyer("Destroyer II"));
         this.playerShips.add(new Submarine("Submarine I"));
-        this.playerShips.add(new Submarine("Submarine II"));
+//        this.playerShips.add(new Submarine("Submarine II"));
     }
 
     public void placePlayerShips(){
