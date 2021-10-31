@@ -5,11 +5,7 @@ public class BattleShipRun {
         Player player1 = new Player();
 //        Player player2 = new Player();
 
-//        GameBoard board1 = new GameBoard();
-//        board1.displayShipsOnBoard();
-//        board1.addShipToBoard(new AirCraftCarrier());
-//        board1.addShipToBoard(new Submarine());
-//        board1.displayShipsOnBoard();
+
     }
 
     public static void printPlayerShipManifest(Player player) {

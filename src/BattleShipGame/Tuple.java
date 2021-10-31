@@ -1,9 +1,10 @@
 package BattleShipGame;
 
-public class Tuple <T,K> {
+public class Tuple<T, K> {
     private T x;
     private K y;
-    public Tuple(T t, K k){
+
+    public Tuple(T t, K k) {
         this.x = t;
         this.y = k;
     }
@@ -11,7 +12,8 @@ public class Tuple <T,K> {
     public K getY() {
         return y;
     }
-    public T getX(){
+
+    public T getX() {
         return x;
     }
 }

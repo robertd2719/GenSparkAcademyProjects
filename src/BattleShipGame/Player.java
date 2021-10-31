@@ -23,6 +23,7 @@ public class Player {
         //@TODO offload this to a player run or setup Method
         inputPlayerName();
         populatePlayerShipPool();
+        placePlayerShips();
         System.out.println("Welcome, "+this.getName());
 
         //Lastly, update player index to reflect new value for playerNumber.
@@ -80,6 +81,11 @@ public class Player {
         this.playerShips.add(new Submarine("Submarine II"));
     }
 
+    public void placePlayerShips(){
+        for (Ship ship: this.playerShips){
+            this.gameboard.addShipToBoard(ship);
+        }
+    }
 
     public String getName() {
         return this.name;
