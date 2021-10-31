@@ -5,7 +5,10 @@ public class BattleShipRun {
         Player player1 = new Player();
         Player player2 = new Player();
         printPlayerShipManifest(player1);
-
+        player1.playerWasHit("Aircraft Carrier");
+        System.out.println("Health: " +
+                player1.getShipFromList("Aircraft Carrier").getShipHP());
+        player1.playerWasHit("Submarine I");
 
     }
 

@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Player {
-    static int playerNumber = 1;
+    static int playerCount = 1;
+    private int playerNumber;
     private String name;
     private boolean isAlive;
     private int shipsRemaining;
@@ -14,20 +15,36 @@ public class Player {
         Player class constructor for setting up a game of Battleship.
      */
     public Player() {
+        this.isAlive = true;
+        this.playerNumber = playerCount;
         inputPlayerName();
         populatePlayerShipPool();
         //Lastly, update player index to reflect new value for playerNumber.
-        playerNumber += 1;
+
+        playerCount += 1;
     }
+
     /*
         playerWasHit - cycle through list of player list and deduct HP;
             remove from list if ship hp is zero
      */
-    //@TODO refactor this if necessary
-    public void playerWasHit(String shotShip){
-        for (Ship ship: this.playerShips){
-            if (ship.getShipName().equals(shotShip)){
+    //@TODO need to add end of game message to this list.
+    public void playerWasHit(String shotShip) {
+        for (Ship ship : this.playerShips) {
+            if (ship.getShipName().equals(shotShip)) {
                 ship.removeHP();
+                System.out.println("Player " + this.playerNumber +
+                        " ship " + ship.getShipName() + " was hit.");
+            }
+            // remove the ship from the players list if its value = 0;
+            if (ship.getShipHP() <= 0) {
+                this.playerShips.remove(ship);
+                System.out.println("Player " + this.playerNumber +
+                        " ship " + ship.getShipName() + " was sunk.");
+            }
+            // If player's arrayList is empty set isALive = false;
+            if (this.playerShips.size() == 0) {
+                this.isAlive = false;
             }
         }
     }
@@ -76,6 +93,16 @@ public class Player {
 
     public String getName() {
         return this.name;
+    }
+
+    public Ship getShipFromList(String shipName) {
+        Ship returnShip = null;
+        for (Ship ship : this.playerShips) {
+            if (shipName.equals(ship.getShipName())) {
+                returnShip = ship;
+            }
+        }
+        return returnShip;
     }
 
     public ArrayList<Ship> getPlayerShips() {

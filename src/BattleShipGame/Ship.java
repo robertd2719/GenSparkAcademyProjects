@@ -1,6 +1,6 @@
 package BattleShipGame;
 
-public class Ship {
+public abstract class Ship {
     private int shipHP;
     private int shipLength;
     private String shipName;

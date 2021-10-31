@@ -7,7 +7,8 @@ public class Destroyer extends Ship {
         this.setShipLength(2);
         this.setShipName("Destroyer");
     }
-    public Destroyer(String name){
+
+    public Destroyer(String name) {
         this.setShipName(name);
         this.setShipHP(2);
         this.setShipLength(2);

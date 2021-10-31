@@ -7,7 +7,7 @@ public class Submarine extends Ship {
         this.setShipName("Submarine");
     }
 
-    public Submarine(String name){
+    public Submarine(String name) {
         this.setShipName(name);
         this.setShipHP(1);
         this.setShipLength(1);
