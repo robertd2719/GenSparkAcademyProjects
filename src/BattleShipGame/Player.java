@@ -9,18 +9,24 @@ public class Player {
     private String name;
     private boolean isAlive;
     private int shipsRemaining;
-    private ArrayList<Ship> playerShips = new ArrayList<>();
+    private ArrayList<Ship> playerShips;
+    private GameBoard gameboard;
 
     /*
         Player class constructor for setting up a game of Battleship.
      */
     public Player() {
+        this.playerShips = new ArrayList<>();
+        this.gameboard = new GameBoard();
         this.isAlive = true;
         this.playerNumber = playerCount;
+        //@TODO offload this to a player run or setup Method
         inputPlayerName();
         populatePlayerShipPool();
-        //Lastly, update player index to reflect new value for playerNumber.
+        System.out.println("Welcome, "+this.getName());
 
+        //Lastly, update player index to reflect new value for playerNumber.
+        //@TODO make sure to reset this value to 0 before ending the game while loop
         playerCount += 1;
     }
 
@@ -74,22 +80,6 @@ public class Player {
         this.playerShips.add(new Submarine("Submarine II"));
     }
 
-    /*
-        getInput is a utility function that will be used by the program for all user input.
-     */
-    public static String getInput() {
-        Scanner scanner = new Scanner(System.in);
-        String input = "";
-
-        //@TODO return a checked expression in a loop if possible
-        try {
-            input = scanner.next();
-
-        } catch (Exception e) {
-            System.out.println("Sorry, that name could not be recognized!");
-        }
-        return input;
-    }
 
     public String getName() {
         return this.name;
@@ -107,6 +97,22 @@ public class Player {
 
     public ArrayList<Ship> getPlayerShips() {
         return this.playerShips;
+    }
+    /*
+        getInput is a utility function that will be used by the program for all user input.
+     */
+    public static String getInput() {
+        Scanner scanner = new Scanner(System.in);
+        String input = "";
+
+        //@TODO return a checked expression in a loop if possible
+        try {
+            input = scanner.next();
+
+        } catch (Exception e) {
+            System.out.println("Sorry, that name could not be recognized!");
+        }
+        return input;
     }
 }
 

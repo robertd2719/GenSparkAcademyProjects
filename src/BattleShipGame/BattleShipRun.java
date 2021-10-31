@@ -3,13 +3,13 @@ package BattleShipGame;
 public class BattleShipRun {
     public static void main(String[] args) {
         Player player1 = new Player();
-        Player player2 = new Player();
-        printPlayerShipManifest(player1);
-        player1.playerWasHit("Aircraft Carrier");
-        System.out.println("Health: " +
-                player1.getShipFromList("Aircraft Carrier").getShipHP());
-        player1.playerWasHit("Submarine I");
+//        Player player2 = new Player();
 
+//        GameBoard board1 = new GameBoard();
+//        board1.displayShipsOnBoard();
+//        board1.addShipToBoard(new AirCraftCarrier());
+//        board1.addShipToBoard(new Submarine());
+//        board1.displayShipsOnBoard();
     }
 
     public static void printPlayerShipManifest(Player player) {
