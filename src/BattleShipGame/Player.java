@@ -21,14 +21,12 @@ public class Player {
         this.gameboard = new GameBoard();
         this.isAlive = true;
         this.playerNumber = playerCount;
-        //@TODO offload this to a player run or setup Method
         inputPlayerName();
         System.out.println("\n\nWelcome "+this.getName()+", please place your ships ");
         populatePlayerShipPool();
         placePlayerShips();
 
         //Lastly, update player index to reflect new value for playerNumber.
-        //@TODO make sure to reset this value to 0 before ending the game while loop
         playerCount += 1;
     }
 
@@ -36,7 +34,7 @@ public class Player {
         playerWasHit - cycle through list of player list and deduct HP;
             remove from list if ship hp is zero
      */
-    //@TODO need to add end of game message to this list.
+
     public void playerWasHit(String shotShip) {
         Iterator<Ship> itr = this.playerShips.iterator();
         while (itr.hasNext()){
@@ -102,13 +100,12 @@ public class Player {
     /*
         On creation will populate each type and number of ships into the players pool
      */
-    // @TODO make sure to re-enable the rest of the ships
     public void populatePlayerShipPool() {
-//        this.playerShips.add(new AirCraftCarrier());
-//        this.playerShips.add(new BattleShip());
-//        this.playerShips.add(new Cruiser());
-//        this.playerShips.add(new Destroyer("Destroyer I"));
-//        this.playerShips.add(new Destroyer("Destroyer II"));
+        this.playerShips.add(new AirCraftCarrier());
+        this.playerShips.add(new BattleShip());
+        this.playerShips.add(new Cruiser());
+        this.playerShips.add(new Destroyer("Destroyer I"));
+        this.playerShips.add(new Destroyer("Destroyer II"));
         this.playerShips.add(new Submarine("Submarine I"));
         this.playerShips.add(new Submarine("Submarine II"));
     }
