@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class Player {
-    static int playerCount = 1;
+    private static int playerCount = 1;
     private int playerNumber;
     private String name;
     private boolean isAlive;
@@ -110,7 +110,7 @@ public class Player {
 //        this.playerShips.add(new Destroyer("Destroyer I"));
 //        this.playerShips.add(new Destroyer("Destroyer II"));
         this.playerShips.add(new Submarine("Submarine I"));
-//        this.playerShips.add(new Submarine("Submarine II"));
+        this.playerShips.add(new Submarine("Submarine II"));
     }
 
     public void placePlayerShips(){
@@ -159,6 +159,10 @@ public class Player {
             System.out.println("Sorry, that name could not be recognized!");
         }
         return input;
+    }
+
+    public static void resetPlayerCount(){
+        Player.playerCount = 1;
     }
 }
 
