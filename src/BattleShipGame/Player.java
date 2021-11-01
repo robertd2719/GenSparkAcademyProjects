@@ -105,9 +105,14 @@ public class Player {
     public ArrayList<Ship> getPlayerShips() {
         return this.playerShips;
     }
+
+    public void getShipsOnBoard() {
+        this.gameboard.displayShipsOnBoard();
+    }
+
     /*
-        getInput is a utility function that will be used by the program for all user input.
-     */
+            getInput is a utility function that will be used by the program for all user input.
+         */
     public static String getInput() {
         Scanner scanner = new Scanner(System.in);
         String input = "";

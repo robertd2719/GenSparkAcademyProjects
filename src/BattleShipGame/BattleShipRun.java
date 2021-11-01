@@ -2,8 +2,16 @@ package BattleShipGame;
 
 public class BattleShipRun {
     public static void main(String[] args) {
-        Player player1 = new Player();
-        Player player2 = new Player();
+//        Player player1 = new Player();
+//        player1.getShipsOnBoard();
+//        Player player2 = new Player();
+//        player2.getShipsOnBoard();
+        //------------Above code is complete for basic gametime run sequence---
+        //@TODO test code goes below, please remove when advisable.
+        GameBoard gameboard = new GameBoard();
+        gameboard.displayGameView();
+
+
 
     }
 

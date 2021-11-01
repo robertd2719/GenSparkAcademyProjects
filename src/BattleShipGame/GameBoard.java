@@ -30,9 +30,9 @@ public class GameBoard {
             System.out.print(i + " ");
             for (int j = 0; j < gameView.length; j++) {
                 if (gameView[i][j] == null) {
-                    System.out.println("~ ");
+                    System.out.print("~ ");
                 } else {
-                    System.out.println(gameView[i][j]+" ");
+                    System.out.print(gameView[i][j]+" ");
                 }
             }
             System.out.println();
