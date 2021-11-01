@@ -68,17 +68,32 @@ public class Player {
         this.name = getInput();
     }
 
+    public void attack(Player attackedPlayer){
+        // Get input from the player for the attack.
+        System.out.print(this.getName()+"Please enter coordinates for an attack: ");
+        String input = Player.getInput();
+        Tuple<Integer,Integer> coordinates = GameBoard.valuesToTuple(input);
+        // Check to see if the ship exists @ position on the opponents board.
+        Ship shipThatWasHit = attackedPlayer.gameboard.checkPostionForAttack(coordinates);
+        // If target players ship was hit....register hit update attacked players list
+        if (shipThatWasHit != null){
+            System.out.println(shipThatWasHit.getShipName()+" was hit!");
+            // Update
+            attackedPlayer.playerWasHit(shipThatWasHit.getShipName());
+        }
+    }
+
     /*
         On creation will populate each type and number of ships into the players pool
      */
     // @TODO make sure to re-enable the rest of the ships
     public void populatePlayerShipPool() {
         this.playerShips.add(new AirCraftCarrier());
-        this.playerShips.add(new BattleShip());
+//        this.playerShips.add(new BattleShip());
 //        this.playerShips.add(new Cruiser());
 //        this.playerShips.add(new Destroyer("Destroyer I"));
 //        this.playerShips.add(new Destroyer("Destroyer II"));
-        this.playerShips.add(new Submarine("Submarine I"));
+//        this.playerShips.add(new Submarine("Submarine I"));
 //        this.playerShips.add(new Submarine("Submarine II"));
     }
 

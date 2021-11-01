@@ -8,9 +8,6 @@ public class BattleShipRun {
 //        player2.getShipsOnBoard();
         //------------Above code is complete for basic gametime run sequence---
         //@TODO test code goes below, please remove when advisable.
-        GameBoard gameboard = new GameBoard();
-        gameboard.displayGameView();
-
 
 
     }

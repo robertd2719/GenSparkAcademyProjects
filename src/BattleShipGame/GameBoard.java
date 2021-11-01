@@ -39,12 +39,16 @@ public class GameBoard {
         }
     }
 
+    public void setGameView(String updateValue, Tuple<Integer,Integer> position){
+        gameView[position.getY()][position.getX()] = updateValue;
+    }
+
     // @TODO --FIRE-- add regular expression checker; check for bounds of ships during placement
     public void addShipToBoard(Ship ship) {
         this.displayShipsOnBoard();
         String direction = "";
         System.out.print("Enter coordinates (x,y) for your " + ship.getShipName() + ": ");
-        String input = "";
+        String input;
         Tuple<Integer, Integer> location = new Tuple<>(0, 0);
         try {
             input = Player.getInput();
@@ -74,6 +78,14 @@ public class GameBoard {
         }
 
 
+    }
+
+    // check a given postion in a gameboard and return a ship if it exists.
+    public Ship checkPostionForAttack(Tuple<Integer,Integer> position){
+        if (this.gameBoard[position.getY()][position.getX()] != null){
+            return this.gameBoard[position.getX()][position.getX()];
+        }
+        return null;
     }
 
     public static Tuple<Integer, Integer> valuesToTuple(String inString) {
