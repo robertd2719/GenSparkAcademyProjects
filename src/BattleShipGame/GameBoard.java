@@ -40,7 +40,7 @@ public class GameBoard {
     }
 
     public void setGameView(String updateValue, Tuple<Integer,Integer> position){
-        gameView[position.getY()][position.getX()] = updateValue;
+        gameView[position.getX()][position.getY()] = updateValue;
     }
 
     // @TODO --FIRE-- add regular expression checker; check for bounds of ships during placement
@@ -83,7 +83,7 @@ public class GameBoard {
     // check a given postion in a gameboard and return a ship if it exists.
     public Ship checkPostionForAttack(Tuple<Integer,Integer> position){
         if (this.gameBoard[position.getY()][position.getX()] != null){
-            return this.gameBoard[position.getX()][position.getX()];
+            return this.gameBoard[position.getY()][position.getX()];
         }
         return null;
     }
