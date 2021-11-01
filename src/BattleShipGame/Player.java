@@ -101,6 +101,7 @@ public class Player {
         On creation will populate each type and number of ships into the players pool
      */
     public void populatePlayerShipPool() {
+        // Add default number of ship types to user pool of ships.
         this.playerShips.add(new AirCraftCarrier());
         this.playerShips.add(new BattleShip());
         this.playerShips.add(new Cruiser());
