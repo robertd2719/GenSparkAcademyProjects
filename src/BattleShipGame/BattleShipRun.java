@@ -2,6 +2,9 @@ package BattleShipGame;
 
 import java.util.Locale;
 
+/*
+    Main execution stage.
+ */
 public class BattleShipRun {
     public static void main(String[] args) {
         while(true){

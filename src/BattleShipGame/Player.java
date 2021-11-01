@@ -34,7 +34,6 @@ public class Player {
         playerWasHit - cycle through list of player list and deduct HP;
             remove from list if ship hp is zero
      */
-
     public void playerWasHit(String shotShip) {
         Iterator<Ship> itr = this.playerShips.iterator();
         while (itr.hasNext()){

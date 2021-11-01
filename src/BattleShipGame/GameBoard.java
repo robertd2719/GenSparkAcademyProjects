@@ -43,7 +43,7 @@ public class GameBoard {
         gameView[position.getX()][position.getY()] = updateValue;
     }
 
-    // @TODO --FIRE-- add regular expression checker; check for bounds of ships during placement
+    // @TODO add regular expression checker
     public void addShipToBoard(Ship ship) {
         this.displayShipsOnBoard();
         String direction = "";
@@ -57,7 +57,7 @@ public class GameBoard {
             System.out.println("Bad Coordinates - Please Re-enter");
         }
         this.gameBoard[location.getY()][location.getX()] = ship;
-        // @TODO check for location vs. direction once core game is complete
+        // @TODO check bounds during re-write
         System.out.print("Place (V)ertically or (H)orizontally: ");
         try {
             direction = Player.getInput().toUpperCase();
